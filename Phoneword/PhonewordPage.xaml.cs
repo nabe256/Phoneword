@@ -35,11 +35,18 @@ namespace Phoneword
 					"Yes",
 					"No"))
 			{
+				App.PhoneNumbers.Add(translatedNumber);
+				callHistoryButton.IsEnabled = true;
 				//var dialer = DependencyService.Get<IDialer>();
 				//if (dialer != null)
 				//	dialer.Dial(translatedNumber);
 				Device.OpenUri(new Uri($"tel:{translatedNumber}"));
 			}
+		}
+
+		async void OnCallHistory(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new CallHistoryPage());
 		}
 	}
 }

@@ -1,14 +1,16 @@
-﻿using Xamarin.Forms;
+﻿using System.Collections.Generic;
+using Xamarin.Forms;
 
 namespace Phoneword
 {
 	public partial class App : Application
 	{
+		public static List<string> PhoneNumbers { get; set; } = new List<string>();
 		public App()
 		{
 			InitializeComponent();
 
-			MainPage = new PhonewordPage();
+			MainPage = new NavigationPage(new PhonewordPage());
 		}
 
 		protected override void OnStart()
